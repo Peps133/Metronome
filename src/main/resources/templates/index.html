@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Métronome</title>
+</head>
+<body>
+<h1>Métronome</h1>
+
+<form action="#" th:action="@{/metronome/start}" method="post">
+    <button type="submit">Démarrer</button>
+</form>
+
+<form action="#" th:action="@{/metronome/stop}" method="post">
+    <button type="submit">Arrêter</button>
+</form>
+
+<form action="#" th:action="@{/metronome/tempo}" method="post">
+    <label for="tempo">Tempo:</label>
+    <input type="number" id="tempo" name="tempo" min="1" max="300" value="120">
+    <button type="submit">Modifier</button>
+</form>
+
+</body>
+</html>
