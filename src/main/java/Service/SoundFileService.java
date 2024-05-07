@@ -11,11 +11,11 @@ import java.io.IOException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SoundService {
+public class SoundFileService {
 
     private Clip clip; // Clip pour stocker le son du métronome
 
-    public SoundService() {
+    public SoundFileService() {
         // Initialisation du clip
         try {
             clip = AudioSystem.getClip();
