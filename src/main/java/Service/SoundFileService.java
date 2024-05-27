@@ -13,10 +13,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class SoundFileService {
 
-    private Clip clip; // Clip pour stocker le son du métronome
+    private Clip clip;
 
     public SoundFileService() {
-        // Initialisation du clip
         try {
             clip = AudioSystem.getClip();
         } catch (LineUnavailableException e) {
@@ -28,16 +27,16 @@ public class SoundFileService {
         try {
             File soundFile = new File(soundFilePath);
             AudioInputStream audioInput = AudioSystem.getAudioInputStream(soundFile);
-            clip.open(audioInput); // Ouvre le fichier audio
+            clip.open(audioInput);
         } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
             e.printStackTrace();
         }
     }
 
     public void playSound() {
-        if (clip != null && !clip.isRunning()) { // Vérifie si le clip est chargé et n'est pas déjà en train de jouer
-            clip.setFramePosition(0); // Réinitialise la position du clip
-            clip.start(); // Joue le son du métronome
+        if (clip != null && !clip.isRunning()) {
+            clip.setFramePosition(120);
+            clip.start();
         }
     }
 
