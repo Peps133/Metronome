@@ -20,14 +20,16 @@ public class MetronomeSession {
     @Temporal(TemporalType.TIMESTAMP)
     private Date endTime;
 
+    private String username; // Ajout de l'attribut username
 
     public MetronomeSession() {
     }
 
-    public MetronomeSession(Metronome metronome, Date startTime, Date endTime) {
+    public MetronomeSession(Metronome metronome, Date startTime, Date endTime, String username) {
         this.metronome = metronome;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.username = username;
     }
 
     public Long getId() {
@@ -60,5 +62,13 @@ public class MetronomeSession {
 
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

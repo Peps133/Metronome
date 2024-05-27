@@ -19,8 +19,6 @@ public class SoundFile {
     @Column(nullable = false)
     private byte[] data;
 
-    // Constructeurs, getters et setters
-
     public SoundFile() {
     }
 
