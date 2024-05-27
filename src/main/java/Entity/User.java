@@ -61,6 +61,5 @@ public class User {
     }
 
     public void setLogin(String login) {
-
     }
 }
