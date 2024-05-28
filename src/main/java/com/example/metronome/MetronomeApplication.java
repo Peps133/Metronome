@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MetronomeApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(MetronomeApplication.class, args);
 	}
 

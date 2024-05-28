@@ -1,7 +1,5 @@
 package com.example.metronome;
 
-import Entity.User;
-import Repository.UserRepository;
 import Service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,8 +15,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-
-import java.util.Optional;
 
 @Configuration
 @EnableWebSecurity
@@ -37,7 +33,8 @@ public class WebSecurityConfiguration {
                                         AntPathRequestMatcher.antMatcher("/css/**"),
                                         AntPathRequestMatcher.antMatcher("/js/**"),
                                         AntPathRequestMatcher.antMatcher("/img/**"),
-                                        AntPathRequestMatcher.antMatcher("/register/**")
+                                        AntPathRequestMatcher.antMatcher("/register/**"),
+                                        AntPathRequestMatcher.antMatcher("/signup/**")
                                 )
                                 .permitAll()
                                 .anyRequest()
@@ -59,86 +56,13 @@ public class WebSecurityConfiguration {
     @Primary
     @Bean
     public UserDetailsService getUserDetailsService() {
+
         return new UserService();
     }
 
     @Bean
-    public UserRepository userRepository() {
-        // Optional: You can inject dependencies here if needed for UserRepository
-        return new UserRepository() {
-            @Override
-            public <S extends User> Iterable<S> saveAll(Iterable<S> entities) {
-                return null;
-            }
-
-            @Override
-            public Optional<User> findById(Long aLong) {
-                return Optional.empty();
-            }
-
-            @Override
-            public boolean existsById(Long aLong) {
-                return false;
-            }
-
-            @Override
-            public Iterable<User> findAll() {
-                return null;
-            }
-
-            @Override
-            public Iterable<User> findAllById(Iterable<Long> longs) {
-                return null;
-            }
-
-            @Override
-            public long count() {
-                return 0;
-            }
-
-            @Override
-            public void deleteById(Long aLong) {
-
-            }
-
-            @Override
-            public void delete(User entity) {
-
-            }
-
-            @Override
-            public void deleteAllById(Iterable<? extends Long> longs) {
-
-            }
-
-            @Override
-            public void deleteAll(Iterable<? extends User> entities) {
-
-            }
-
-            @Override
-            public void deleteAll() {
-
-            }
-
-            @Override
-            public User findByUsername(String username) {
-                return null;
-            }
-
-            @Override
-            public Optional<User> findByLoginOrEmail(String username, String username1) {
-                return Optional.empty();
-            }
-
-            @Override
-            public User save(User user) {
-                return null;
-            }
-        };
-    }
-    @Bean
     public PasswordEncoder getPasswordEncoder() {
+
         return new BCryptPasswordEncoder();
     }
 

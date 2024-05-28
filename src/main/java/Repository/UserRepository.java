@@ -2,15 +2,14 @@ package Repository;
 
 import Entity.User;
 import org.springframework.data.repository.CrudRepository;
-
-
+import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
+@Repository
 public interface UserRepository extends CrudRepository<User, Long> {
     User findByUsername(String username);
 
-    Optional<User> findByLoginOrEmail(String username, String username1);
+    Optional<User> findByLoginOrEmail(String login, String email);
 
     User save(User user);
 }
-
