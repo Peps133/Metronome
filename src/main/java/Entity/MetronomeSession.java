@@ -20,7 +20,7 @@ public class MetronomeSession {
     @Temporal(TemporalType.TIMESTAMP)
     private Date endTime;
 
-    private String username; // Ajout de l'attribut username
+    private String username;
 
     public MetronomeSession() {
     }

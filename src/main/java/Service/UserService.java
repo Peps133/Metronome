@@ -28,7 +28,7 @@ public class UserService implements UserDetailsService {
         return optUser.map(user -> org.springframework.security.core.userdetails.User.builder()
                         .username(user.getUsername())
                         .password(user.getPassword())
-                        .roles(user.getRole().getName()) // Assurez-vous que `Role` a un champ `name`
+                        .roles(user.getRole().getName())
                         .build())
                 .orElseThrow(() -> new UsernameNotFoundException("Utilisateur inconnu"));
     }
